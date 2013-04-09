@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "jpeg_to_bmp", "jpeg_to_bmp.vcproj", "{2D64E650-A802-49EC-9E8B-7B244447A6DE}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{2D64E650-A802-49EC-9E8B-7B244447A6DE}.Debug.ActiveCfg = Debug|Win32
+		{2D64E650-A802-49EC-9E8B-7B244447A6DE}.Debug.Build.0 = Debug|Win32
+		{2D64E650-A802-49EC-9E8B-7B244447A6DE}.Release.ActiveCfg = Release|Win32
+		{2D64E650-A802-49EC-9E8B-7B244447A6DE}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

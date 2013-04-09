@@ -1,0 +1,38 @@
+(1) gray = 0.3 * R + 0.59 * G + 0.11 * B 
+(2) gray = 0.39 * R + 0.50 * G + 0.11 * B 
+
+
+Photoshop标准亮度公式：Gray = 0.3*R + 0.59*G + 0.11*B
+
+Gray = (R*30 + G*59 + B*11 + 50) / 100
+
+一种是大众型
+R*0.11+G*0.59+B*0.30
+
+另一种是 Adobe Photoshop 里的公式
+Adobe RGB (1998) [gamma=2.20]
+Gray = (R^2.2 * 0.2973 + G^2.2 * 0.6274 + B^2.2 * 0.0753)^(1/2.2)
+
+二种公式计算出来的差异很明显，而且计算速度差异也很大
+
+800*600 的图片
+第一种方法耗时:90 ms
+第二种方法耗时:900 ms
+
+可是 Photoshop 里速度很快，才50ms左右.
+
+代码如下:
+  BYTE *lp;
+  BYTE bt;
+  for(int y=0;y<pbmp->Height;y++){
+  lp=(BYTE*)pbmp->ScanLine[y];
+  for(int x=pbmp->Width-1;x>=0;x--){
+  //bt=lp[x*3]*0.27+lp[x*3+1]*0.84+lp[x*3+2]*0.52;
+  //if(bt>255) bt=255;
+  bt=lp[x*3]*0.3+lp[x*3+1]*0.59+lp[x*3+2]*0.11;
+  //bt=pow(pow(lp[x*3+2],2.2)*0.2973+pow(lp[x*3+1],2.2)*0.6274+pow(lp[x*3],2.2)*0.0753,1/2.2);
+  lp[x*3]=bt;
+  lp[x*3+1]=bt;
+  lp[x*3+2]=bt;
+  }
+  }
